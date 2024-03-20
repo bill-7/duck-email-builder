@@ -13,7 +13,10 @@ function App() {
     return emailRegex.test(email);
   };
 
-  const derivedEmail = () => `${recipient.replace("@", "_at_")}_${userAddress}`;
+  const clean = (s: string) => s.trim().toLowerCase();
+
+  const derivedEmail = () =>
+    `${clean(recipient).replace("@", "_at_")}_${clean(userAddress)}`;
 
   return (
     <div className="container">
@@ -36,18 +39,19 @@ function App() {
           localStorage.setItem("userAddress", e.target.value);
         }}
       />
-      {userAddress.endsWith("@duck.com") && isValidEmail(recipient) && (
-        <>
-          <h3>{derivedEmail()}</h3>
-          <button
-            onClick={() => {
-              navigator.clipboard.writeText(derivedEmail());
-            }}
-          >
-            Copy
-          </button>
-        </>
-      )}
+      {clean(userAddress).includes("@duck.com") &&
+        isValidEmail(clean(recipient)) && (
+          <>
+            <h3>{derivedEmail()}</h3>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(derivedEmail());
+              }}
+            >
+              Copy
+            </button>
+          </>
+        )}
     </div>
   );
 }
