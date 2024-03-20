@@ -21,6 +21,11 @@ img {
   width: 100px;
 }
 
+h3 {
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
 input[type="text"] {
   width: 300px;
   padding: 10px;
