@@ -17,6 +17,7 @@ function App() {
 
   return (
     <div className="container">
+      <img src={"../duck.png"} alt="Duck" />
       <h2>Duck.com Email Builder</h2>
       <p>Recipient</p>
       <input

@@ -17,6 +17,10 @@ p {
   height: 500px;
 }
 
+img {
+  width: 100px;
+}
+
 input[type="text"] {
   width: 300px;
   padding: 10px;
